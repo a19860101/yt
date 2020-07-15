@@ -3,10 +3,7 @@
 INDEX
 @endsection
 @section('main')
-<h1>index</h1>
-    <nav>
-        <a href="{{ route('post.create') }}"> 新增 </a>
-    </nav>
+    <h1>列表</h1>
     @foreach($posts as $post)
         <div>{{ $post->title }}</div>
         <diV>{{ $post->content }}</diV>
