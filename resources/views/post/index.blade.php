@@ -1,6 +1,6 @@
 @extends('template.master')
 @section('page-title')
-INDEX
+資料列表
 @endsection
 @section('main')
     <h1>列表</h1>
