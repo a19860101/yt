@@ -103,7 +103,8 @@ class PostController extends Controller
         // $posts = DB::select('SELECT * FROM posts WHERE id = ?',[$id]);
         // return view('post.edit',compact('posts'));
 
-        $post = DB::table('posts')->find($id);
+        // $post = DB::table('posts')->find($id);
+        $post = Post::findOrFail($id);
         return view('post.edit',compact('post'));
     }
 
@@ -125,11 +126,16 @@ class PostController extends Controller
         //     now(),
         //     $id
         // ]);
-        DB::table('posts')->where('id',$id)->update([
-            'title'         => $request->title,
-            'content'       => $request->content,
-            'updated_at'    => now()
-        ]);
+        // DB::table('posts')->where('id',$id)->update([
+        //     'title'         => $request->title,
+        //     'content'       => $request->content,
+        //     'updated_at'    => now()
+        // ]);
+
+        $post = Post::find($id);
+        $post->fill($request->all());
+        $post->save();
+        
         return redirect('post');
 
     }
