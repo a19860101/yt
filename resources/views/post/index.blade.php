@@ -20,6 +20,7 @@
             <input type="submit" value="刪除" onclick="return confirm('確認刪除')">
         </form>
         <a href="{{ route('post.show', ['id' => $post->id]) }}">檢視</a>
+        <a href="{{ route('post.edit', ['id' => $post->id]) }}">編輯</a>
         <hr>
     @endforeach
 </body>
