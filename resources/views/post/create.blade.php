@@ -21,6 +21,11 @@
                     <input type="button" value="取消" class="btn btn-danger btn-sm" onclick="history.back()">
 
                 </form>
+                @if($errors -> any())
+                    @foreach($errors->all() as $error)
+                        {{$error}}
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>

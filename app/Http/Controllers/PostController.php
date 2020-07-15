@@ -68,6 +68,11 @@ class PostController extends Controller
         // $post->fill($request->all());
         // $post->save();
 
+        $request -> validate([
+            'title' => 'required ',
+            'content'=> 'required | max:200'
+        ]);
+
         Post::create($request->all());
         return redirect('post');
     }
