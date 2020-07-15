@@ -38,6 +38,11 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
+        // return $request->file('img')->store('qwerty');
+        return $request->file('img')->store('banana','public');
+        // $img_name = time();
+        // return $request->file('img')->storeAs('banana',$img_name);
+
     }
 
     /**

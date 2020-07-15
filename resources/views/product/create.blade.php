@@ -12,7 +12,7 @@
                     <div class="form-group">
                         <input type="file" name="img">
                     </div>
-                    <input type="submit" value="新增" class="btn btn-primary btn-sm">
+                    <input type="submit" value="上傳" class="btn btn-primary btn-sm">
                     <input type="button" value="取消" class="btn btn-danger btn-sm" onclick="history.back()">
                 </form>
             </div>
