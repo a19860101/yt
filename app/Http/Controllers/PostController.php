@@ -15,7 +15,8 @@ class PostController extends Controller
     public function index()
     {
         //
-        $posts = DB::select('SELECT * FROM posts');
+        // $posts = DB::select('SELECT * FROM posts');
+        $posts = DB::table('posts')->get();
         return view('post.index',compact('posts'));
     }
 
@@ -57,8 +58,12 @@ class PostController extends Controller
     public function show($id)
     {
         //
-        $posts = DB::select('SELECT * FROM posts WHERE id = ?',[$id]);
-        return view('post.show',compact('posts'));
+        // $posts = DB::select('SELECT * FROM posts WHERE id = ?',[$id]);
+        // return view('post.show',compact('posts'));
+        
+        // $post = DB::table('posts')->find($id);
+        $post = DB::table('posts')->find($id);
+        return view('post.show',compact('post'));
     }
 
     /**
@@ -70,8 +75,10 @@ class PostController extends Controller
     public function edit($id)
     {
         //
-        $posts = DB::select('SELECT * FROM posts WHERE id = ?',[$id]);
-        return view('post.edit',compact('posts'));
+        // $posts = DB::select('SELECT * FROM posts WHERE id = ?',[$id]);
+        // return view('post.edit',compact('posts'));
+        $post = DB::table('posts')->find($id);
+        return view('post.edit',compact('post'));
     }
 
     /**
