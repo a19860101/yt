@@ -7,7 +7,7 @@
 </head>
 <body>
     @foreach($posts as $post)
-    <form action="" method="post">
+    <form action="{{route('post.update',['id'=>$post->id])}}" method="post">
         @csrf
         @method('put')
         <input type="text" name="title" value="{{ $post->title }}">
