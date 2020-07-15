@@ -40,11 +40,18 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
-        DB::insert('INSERT INTO posts(title,content,created_at,updated_at)VALUES(?,?,?,?)',[
-            $request -> title,
-            $request -> content,
-            now(),
-            now()
+        // DB::insert('INSERT INTO posts(title,content,created_at,updated_at)VALUES(?,?,?,?)',[
+        //     $request -> title,
+        //     $request -> content,
+        //     now(),
+        //     now()
+        // ]);
+
+        DB::table('posts')->insert([
+            'title'         => $request->title,
+            'content'       => $request->content,
+            'created_at'    => now(),
+            'updated_at'    => now()
         ]);
         return redirect('post');
     }
@@ -77,6 +84,7 @@ class PostController extends Controller
         //
         // $posts = DB::select('SELECT * FROM posts WHERE id = ?',[$id]);
         // return view('post.edit',compact('posts'));
+
         $post = DB::table('posts')->find($id);
         return view('post.edit',compact('post'));
     }
