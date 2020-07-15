@@ -135,7 +135,7 @@ class PostController extends Controller
         $post = Post::find($id);
         $post->fill($request->all());
         $post->save();
-        
+
         return redirect('post');
 
     }
@@ -151,7 +151,13 @@ class PostController extends Controller
         //
         // DB::delete('DELETE FROM posts WHERE id = ?',[$id]);
 
-        DB::table('posts')->where('id',$id)->delete();
+        // DB::table('posts')->where('id',$id)->delete();
+
+        // $post = Post::find($id);
+        // $post->delete();
+
+        Post::destroy($id);
+
         return redirect('post');
     }
 }
