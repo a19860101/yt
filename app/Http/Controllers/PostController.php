@@ -27,6 +27,7 @@ class PostController extends Controller
     public function create()
     {
         //
+        return view('post.create');
     }
 
     /**
@@ -38,6 +39,13 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
+        DB::insert('INSERT INTO posts(title,content,created_at,updated_at)VALUES(?,?,?,?)',[
+            $request -> title,
+            $request -> content,
+            now(),
+            now()
+        ]);
+        return redirect('post');
     }
 
     /**
@@ -49,6 +57,8 @@ class PostController extends Controller
     public function show($id)
     {
         //
+        $posts = DB::select('SELECT * FROM posts WHERE id = ?',[$id]);
+        return view('post.show',compact('posts'));
     }
 
     /**
@@ -74,6 +84,7 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         //
+
     }
 
     /**
@@ -85,5 +96,7 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+        DB::delete('DELETE FROM posts WHERE id = ?',[$id]);
+        return redirect('post');
     }
 }
