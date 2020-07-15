@@ -17,4 +17,5 @@
         <a href="{{ route('post.edit', ['id' => $post->id]) }}">編輯</a>
         <hr>
     @endforeach
+    {{ $posts->links() }}
 @endsection
