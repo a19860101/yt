@@ -17,7 +17,9 @@ class PostController extends Controller
     {
         //
         // $posts = DB::select('SELECT * FROM posts');
-        $posts = DB::table('posts')->get();
+        // $posts = DB::table('posts')->get();
+        $posts = Post::all();
+        // $posts = Post::get();
         return view('post.index',compact('posts'));
     }
 
@@ -70,7 +72,11 @@ class PostController extends Controller
         // return view('post.show',compact('posts'));
         
         // $post = DB::table('posts')->find($id);
-        $post = DB::table('posts')->find($id);
+        // $post = DB::table('posts')->find($id);
+
+        // $post = Post::find($id);
+        $post = Post::findOrFail($id);
+        // $post = Post::where('id',$id)->firstOrFail();
         return view('post.show',compact('post'));
     }
 
