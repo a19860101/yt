@@ -6,7 +6,7 @@
     <h1>列表</h1>
     @foreach($posts as $post)
         <div>{{ $post->title }}</div>
-        <diV>{{ $post->content }}</diV>
+        <div>{{ $post->content }}</div>
         <div>{{ $post->created_at }}</div>
         <form action="{{ route('post.destroy', ['id' => $post->id]) }}" method="post">
             @csrf
