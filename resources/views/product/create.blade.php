@@ -10,6 +10,9 @@
                 <form action="{{ route('product.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
+                        <input type="text" name="title">
+                    </div>
+                    <div class="form-group">
                         <input type="file" name="img">
                     </div>
                     <input type="submit" value="上傳" class="btn btn-primary btn-sm">

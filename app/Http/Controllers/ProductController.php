@@ -49,9 +49,14 @@ class ProductController extends Controller
         // $img_name = pathinfo($img,PATHINFO_FILENAME);
         //檔名
         $img_final = $img_name.'.'.$img_ext;
-        $request->file('img')->storeAs('public/images',$img_name);
+        $request->file('img')->storeAs('public/images',$img_final);
 
+        $product = new Product;
+        $product->fill($request->all());
+        $product->img = $img_final;
+        $product->save();
 
+        return redirect('product');
     }
 
     /**
