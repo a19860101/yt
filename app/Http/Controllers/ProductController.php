@@ -45,11 +45,11 @@ class ProductController extends Controller
 
         $img = $request->file('img')->getClientOriginalName();
         $img_ext = $request->file('img')->getClientOriginalExtension();
-        // $img_name = time();
-        $img_name = pathinfo($img,PATHINFO_FILENAME);
+        $img_name = md5(time());
+        // $img_name = pathinfo($img,PATHINFO_FILENAME);
         //檔名
-        $img_final = $img_name.'__'.time().'.'.$img_ext;
-        return $img_final;
+        $img_final = $img_name.'.'.$img_ext;
+        $request->file('img')->storeAs('public/images',$img_name);
 
 
     }
