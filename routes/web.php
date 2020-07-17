@@ -17,9 +17,6 @@ Route::get('/', function () {
 Route::resource('/post','PostController');
 Route::resource('/product','ProductController');
 
-
-
-
 Route::prefix('trash')->group(function(){
     Route::get('/','TrashController@index')->name('trash.index');
     Route::get('/restore/{id}','TrashController@restore')->name('trash.restore');
