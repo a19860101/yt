@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
 
 class TrashController extends Controller
 {
     //
     public function index(){
-        return 'Trash Index';
+        $posts = Post::onlyTrashed()->get();
+        return view('post.trash',compact('posts'));
     }
 }
