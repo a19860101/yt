@@ -18,3 +18,4 @@ Route::resource('/post','PostController');
 Route::resource('/product','ProductController');
 
 Route::get('/trash','TrashController@index')->name('trash.index');
+Route::get('/trash/restore/{id}','TrashController@restore')->name('trash.restore');

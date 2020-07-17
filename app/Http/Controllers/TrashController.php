@@ -12,4 +12,7 @@ class TrashController extends Controller
         $posts = Post::onlyTrashed()->get();
         return view('post.trash',compact('posts'));
     }
+    public function restore($id){
+        return 'restore'.$id;
+    }
 }

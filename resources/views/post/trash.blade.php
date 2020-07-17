@@ -17,6 +17,9 @@
                         <td>{{$post -> id}}</td>
                         <td>{{$post -> title}}</td>
                         <td>{{$post -> updated_at}}</td>
+                        <td>
+                            <a href="{{route('trash.restore',['id'=>$post -> id])}}">還原</a>
+                        </td>
                     </tr>
                     @endforeach
                 </table>
