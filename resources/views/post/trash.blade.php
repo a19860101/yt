@@ -11,6 +11,7 @@
                         <th>#</th>
                         <th>標題</th>
                         <th>最後修改時間</th>
+                        <th></th>
                     </tr>
                     @foreach($posts as $post)
                     <tr>
@@ -18,7 +19,7 @@
                         <td>{{$post -> title}}</td>
                         <td>{{$post -> updated_at}}</td>
                         <td>
-                            <a href="{{route('trash.restore',['id'=>$post -> id])}}">還原</a>
+                            <a href="{{route('trash.restore',['id'=>$post -> id])}}" class="btn btn-info">還原</a>
                         </td>
                     </tr>
                     @endforeach
