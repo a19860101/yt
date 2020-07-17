@@ -39,9 +39,18 @@ class ProductController extends Controller
     {
         //
         // return $request->file('img')->store('qwerty');
-        return $request->file('img')->store('banana','public');
+        // return $request->file('img')->store('banana','public');
         // $img_name = time();
         // return $request->file('img')->storeAs('banana',$img_name);
+
+        $img = $request->file('img')->getClientOriginalName();
+        $img_ext = $request->file('img')->getClientOriginalExtension();
+        // $img_name = time();
+        $img_name = pathinfo($img,PATHINFO_FILENAME);
+        //檔名
+        $img_final = $img_name.'__'.time().'.'.$img_ext;
+        return $img_final;
+
 
     }
 
