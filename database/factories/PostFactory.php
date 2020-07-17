@@ -10,6 +10,6 @@ $factory->define(Post::class, function (Faker $faker) {
     return [
         //
         "title"     =>$faker->word,
-        "content"   =>$faker->realText($maxNbChars = 200, $indexSize = 2),
+        "content"   =>$faker->realText($maxNbChars = 200, $indexSize = 1),
     ];
 });

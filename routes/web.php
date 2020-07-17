@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('/post','PostController');
+Route::resource('/post','PostController')->middleware('auth');
 Route::resource('/product','ProductController');
 
 Route::prefix('trash')->group(function(){
@@ -22,3 +22,6 @@ Route::prefix('trash')->group(function(){
     Route::get('/restore/{id}','TrashController@restore')->name('trash.restore');
     Route::delete('/delete','TrashController@delete')->name('trash.delete');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
