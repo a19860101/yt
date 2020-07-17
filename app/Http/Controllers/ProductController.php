@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -103,5 +104,8 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+        Storage::delete('public/images/'.$product->img);
+        Product::destroy($product->id);
+        return redirect('product');
     }
 }

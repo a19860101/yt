@@ -19,6 +19,13 @@
                     <td>
                         <img src="storage/images/{{$product -> img}}" height='100'>
                     </td>
+                    <td>
+                        <form action="{{route('product.destroy',['id'=>$product->id])}}" method="post">
+                            @csrf
+                            @method('delete')
+                            <input type="submit" value="刪除" class="btn btn-danger">
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
             </table>
