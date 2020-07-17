@@ -17,4 +17,11 @@ class TrashController extends Controller
         $post->restore();
         return redirect('trash');
     }
+    public function delete(Request $request){
+        $post = Post::onlyTrashed()->find($request->id);
+        $post->forceDelete();
+
+        return redirect('trash');
+
+    }
 }

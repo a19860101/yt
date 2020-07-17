@@ -20,6 +20,10 @@
                         <td>{{$post -> updated_at}}</td>
                         <td>
                             <a href="{{route('trash.restore',['id'=>$post -> id])}}" class="btn btn-info">還原</a>
+                            <form action="{{route('trash.delete',['id'=>$post -> id])}}" method="post">
+                                @csrf
+                                <input type="submit" value="刪除">
+                            </form>
                         </td>
                     </tr>
                     @endforeach
