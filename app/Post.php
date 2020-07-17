@@ -12,3 +12,7 @@ class Post extends Model
 
     protected $fillable = ['title','content'];
 }
+/*
+php artisan make:migration 
+add_deleted_at_to_posts --table=posts
+*/
