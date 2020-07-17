@@ -19,7 +19,8 @@ class PostController extends Controller
         // $posts = DB::select('SELECT * FROM posts');
         // $posts = DB::table('posts')->get();
         // $posts = Post::all();
-        $posts = Post::onlyTrashed()->Paginate(5);
+        $posts = Post::withTrashed()->Paginate(50);
+        // $posts = Post::onlyTrashed()->Paginate(5);
         // $posts = Post::simplePaginate(5);
         // $posts = Post::get();
         return view('post.index',compact('posts'));

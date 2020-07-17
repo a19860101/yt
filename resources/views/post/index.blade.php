@@ -15,6 +15,7 @@
                         <th>動作</th>
                     </tr>
                 @foreach($posts as $post)
+                   
                     <tr>
                         <td>{{ $post->id }}</td>
                         <td>{{ $post->title }}</td>
@@ -30,6 +31,7 @@
                         </form>
                         </td>
                     </tr>
+                
                 @endforeach
                 </table>
                 {{ $posts->links() }}

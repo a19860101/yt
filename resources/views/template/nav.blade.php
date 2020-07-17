@@ -9,6 +9,9 @@
       <li class="nav-item active">
         <a class="nav-link" href="{{ route('post.create') }}">新增</a>
       </li>
+      <li class="nav-item">
+        <a href="{{route('trash.index')}}" class="nav-link">垃圾桶</a>
+      </li>
     </ul>
   </div>
 </nav>

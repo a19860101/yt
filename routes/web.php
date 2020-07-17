@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 Route::resource('/post','PostController');
 Route::resource('/product','ProductController');
+
+Route::get('/trash','TrashController@index')->name('trash.index');
